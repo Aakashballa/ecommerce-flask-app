@@ -1,0 +1,36 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Store</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fb; color: #222; }
+    header { background: #1e293b; color: white; padding: 16px 24px; display:flex; justify-content:space-between; }
+    .container { max-width: 1000px; margin: 24px auto; padding: 0 16px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .card { background:white; border-radius: 12px; padding:16px; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+    .price { font-weight: bold; color:#0284c7; }
+    a.button { background:#0f766e; color:white; padding:10px 14px; border-radius:8px; text-decoration:none; display:inline-block; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>E-Commerce Store</h2>
+    <a href="{{ url_for('cart') }}" style="color:white; text-decoration:none;">Cart ({{ cart_count }})</a>
+  </header>
+  <div class="container">
+    <div class="grid">
+      {% for product in products %}
+      <div class="card">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <p class="price">₹{{ '%.2f'|format(product.price) }}</p>
+        <a class="button" href="{{ url_for('add_to_cart', product_id=product.id) }}">Add to cart</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
