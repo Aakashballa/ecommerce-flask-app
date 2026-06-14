@@ -40,12 +40,6 @@ python app.py
 
 Then open [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-## GitHub Description
-Flask e-commerce app with product listing, cart functionality, and SQLite integration.
-
-## LinkedIn Project Description
-Developed a full-stack e-commerce web application using Flask and SQLite, implementing product browsing, cart management, and database integration.
-
 ## Future Enhancements
 - User authentication
 - Payment integration
